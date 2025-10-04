@@ -23,7 +23,7 @@ embedding_model = HuggingFaceEmbeddings(
 # Need connection to the vector db so we can query...
 
 vector_db  = QdrantVectorStore.from_existing_collection(
-    url="http://localhost:6333",
+    url=os.getenv("QDRANT_URL"),
     collection_name = "SemanticDocs",
     embedding=embedding_model
 )
