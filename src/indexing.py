@@ -39,7 +39,7 @@ embedding_model = HuggingFaceEmbeddings(
 
 # vector store
 # --- Qdrant setup ---
-client = QdrantClient(url="http://localhost:6333",timeout=60)
+client = QdrantClient(url=os.getenv("QDRANT_URL"), api_key=os.getenv("QDRANT_API") ,timeout=60)
 
 # Recreate collection to match embedding size (384 for MiniLM)
 collection_name = "SemanticDocs"
